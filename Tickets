@@ -1,0 +1,44 @@
+// Tem uma fila de pessoas que querem comprar Tickets para cinema, cada ticket demora 1 segundo para ser processado
+// Caso alguém queira comprar mais de 1 ticket, ele terá que ir até o final da fila, caso só tenha ele para comprar tickets
+// Ele não precisará ir até o final da fila, porém ainda precisara esperar o processamento de cada ticket
+// Considerando k como uma pessoa/posição da fila, diga quantos segundos k demorará para comprar todos os seus tickets.
+
+public class tickets {
+	
+	public static void main(String []args){
+		int[] tickets = {5,1,1,1};
+        int k = 0;
+        System.out.println(timeRequiredToBuy(tickets, k));
+		
+		
+	}
+		public static int timeRequiredToBuy(int[] tickets, int k) {
+			
+			int count = 0;
+			boolean acabou = false;
+			while (!acabou){
+			int	c = 0;
+				while (c < tickets.length) {
+					if (tickets[c] > 0) {
+						tickets[c]--;
+						count++;
+						if (c == k && tickets[c] == 0) {
+							acabou = true;
+							break;
+						}
+						else {
+							c++;
+						}
+						
+					}
+					else {
+						c++;
+					}
+			}
+			}
+			
+			return count;
+			
+        
+    }
+}
